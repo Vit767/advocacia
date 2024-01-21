@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="advocacia.css">
+    <title>Contato - Nome do Advogado</title>
+</head>
+<body>
+
+    <!-- ... (cabeçalho e navegação) ... -->
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato para agendar uma consulta.</p>
+        <form id="contato-form">
+            <!-- Adicione os campos do formulário conforme necessário -->
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+            <button type="button" onclick="enviarMensagem()">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <!-- ... (rodapé) ... -->
+
+    <script>
+        function enviarMensagem() {
+            // Coletar dados do formulário
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var mensagem = document.getElementById("mensagem").value;
+
+            // Montar os dados para enviar
+            var data = {
+                nome: nome,
+                email: email,
+                mensagem: mensagem
+            };
+
+            // Enviar dados para a função serverless do Netlify
+            fetch('/.netlify/functions/enviar-mensagem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Manipular a resposta (pode redirecionar para a página de agradecimento, exibir uma mensagem, etc.)
+                console.log('Resposta do servidor:', data);
+            })
+            .catch(error => {
+                console.error('Erro ao enviar mensagem:', error);
+            });
+        }
+    </script>
+
+</body>
+</html>
