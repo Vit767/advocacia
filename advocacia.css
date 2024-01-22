@@ -80,6 +80,25 @@ section {
     gap: 20px;
 }
 
+.image-text {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px); /* 50% da largura menos o espaçamento entre as imagens */
+}
+
+.image-text img {
+    width: 100%;
+    height: auto;
+}
+
+.text {
+    background-color: #514e4e; /* Adicione uma cor de fundo para destacar o texto */
+    color: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
 .image-gallery img {
     width: 100%;
     max-width: 400px;
@@ -93,10 +112,27 @@ footer {
     padding: 10px 0;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Ajustado para alinhar os itens à esquerda */
+}
 
+label {
+    margin-bottom: 5px; /* Adiciona um espaço entre os rótulos e os campos */
+    color: #fff; /* Cor do texto branco */
+}
 
+input,
+textarea {
+    width: 90%; /* Ocupa 100% da largura disponível */
+    padding: 8px; /* Espaçamento interno */
+    margin-bottom: 15px; /* Adiciona um espaço entre os campos */
+    border: 1px solid #ddd; /* Borda com cor mais clara para contraste */
+    border-radius: 5px; /* Bordas arredondadas */
+}
 button {
-    background-color: #4CAF50; /* Cor de fundo verde */
+    background-color: #000300; /* Cor de fundo verde */
     color: #fff; /* Cor do texto branco */
     padding: 10px 20px; /* Espaçamento interno */
     border: none; /* Sem borda */
@@ -104,8 +140,25 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    margin-bottom: 10px; /* Adiciona um espaço entre os botões */
 }
 
-button {
-    background-color: #45a049; /* Cor de fundo verde mais escura no hover */
+button:hover {
+    background-color: #3d483e; /* Cor de fundo verde mais escura no hover */
+}
+
+.email-button {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: #fff; /* Cor do texto branco */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove a sublinhado padrão de links */
+    display: inline-block; /* Permite adicionar o margin */
+    transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.email-button:hover {
+    background-color: #0056b3; /* Cor de fundo azul mais escura no hover */
 }
