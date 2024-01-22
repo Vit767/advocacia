@@ -162,3 +162,8 @@ button:hover {
 .email-button:hover {
     background-color: #0056b3; /* Cor de fundo azul mais escura no hover */
 }
+
+#whatsapp-button img {
+    width: 145px; /* Largura desejada */
+    height: 40px; /* Altura desejada */
+}
