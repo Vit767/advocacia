@@ -7,61 +7,52 @@
     <title>Contato - Nome do Advogado</title>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <img src="advocacia imagem 1.jpg" alt="Header Image">
+            <div class="header-content">
+                <h1>Nome do Advogado</h1>
+                <p>Advogado Especializado em [Áreas de Prática]</p>
+            </div>
+        </div>
+    </header>
 
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="areasdapratica.html">Áreas de Prática</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
     <!-- ... (cabeçalho e navegação) ... -->
 
     <section id="contato">
         <h2>Contato</h2>
         <p>Entre em contato para agendar uma consulta.</p>
-        <form id="contato-form">
+        <form action="https://api.staticforms.xyz/submit" method="post">
             <!-- Adicione os campos do formulário conforme necessário -->
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+            <input type="text" name="name" placeholder="Digite seu nome">
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="text" name="email" placeholder="Digite seu email" />
 
             <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+            <textarea name="message" placeholder="Digite seu mensagem"></textarea>
 
-            <button type="button" onclick="enviarMensagem()">Enviar Mensagem</button>
+            <button type="submit">Enviar mensagem</button>
+
+            <input type="hidden" name="accessKey" value="a7efdbdd-0a4f-451e-85c0-3b2f8c439615">
+
+            <input type="hidden" name="redirectTo" value="https://agradecimentopelamensagem.netlify.app/">
         </form>
-    </section>
 
+       
     <!-- ... (rodapé) ... -->
 
-    <script>
-        function enviarMensagem() {
-            // Coletar dados do formulário
-            var nome = document.getElementById("nome").value;
-            var email = document.getElementById("email").value;
-            var mensagem = document.getElementById("mensagem").value;
-
-            // Montar os dados para enviar
-            var data = {
-                nome: nome,
-                email: email,
-                mensagem: mensagem
-            };
-
-            // Enviar dados para a função serverless do Netlify
-            fetch('/.netlify/functions/enviar-mensagem', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Manipular a resposta (pode redirecionar para a página de agradecimento, exibir uma mensagem, etc.)
-                console.log('Resposta do servidor:', data);
-            })
-            .catch(error => {
-                console.error('Erro ao enviar mensagem:', error);
-            });
-        }
-    </script>
-
+  
 </body>
 </html>
